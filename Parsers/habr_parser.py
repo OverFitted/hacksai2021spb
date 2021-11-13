@@ -1,8 +1,7 @@
 import requests
-import time
-import json
-
 from bs4 import BeautifulSoup
+import json
+import time
 
 HABR_ROOT = "https://habr.com"
 HABR_SEARCH = "https://habr.com/ru/search/"
@@ -11,9 +10,7 @@ HABR_SEARCH = "https://habr.com/ru/search/"
 def get_texts_urls(key_word, order='date'):
     page_number = 1
     all_urls = []
-    max_urls = 50
-
-    while page_number < max_urls:
+    while True:
         page = f'page{page_number}/'
         habr_search_url = HABR_SEARCH + page
         r = requests.get(habr_search_url, params={
@@ -40,23 +37,15 @@ def parse_article_text(url):
     p_list = soup.find_all("p")
     for p in p_list:
         text += (p.text.strip()) if len(p.text) >= 20 else ''
-
     return text
 
 
-def batch(iterable, n=1):
-    l = len(iterable)
-    for ndx in range(0, l, n):
-        yield iterable[ndx:min(ndx + n, l)]
-
-
 def get_all_texts_about_company(name):
-    all_texts = []
     urls = get_texts_urls(name)
-    for url in urls:
-        text = parse_article_text(url)
+    all_texts = []
+    for u in urls[:50]:
+        text = parse_article_text(u)
         all_texts.append(text)
-
     return all_texts
 
 
@@ -66,6 +55,7 @@ def get_company_info(company_name, order='relevance'):
     subscribers_quantity = 0
     description = ""
     industries = []
+
     resp_search = requests.get(HABR_SEARCH, params={
         "q": company_name,
         "target_type": 'companies',
@@ -110,11 +100,11 @@ def get_company_info(company_name, order='relevance'):
 def build_data_json(company_name, result_file_path='result.json'):
     result_dict = dict()
     company_info = get_company_info(company_name)
-    articles = [x for x in get_all_texts_about_company(company_name) if len(x) >= 200]
-    articles_quantity = len(articles)
+    references = [x for x in get_all_texts_about_company(company_name) if len(x) >= 200]
+    references_quantity = len(references)
     result_dict["company_info"] = company_info
-    result_dict["articles_quantity"] = articles_quantity
-    result_dict["articles"] = articles
+    result_dict["references_quantity"] = references_quantity
+    result_dict["references"] = references
     result_json = json.loads(json.dumps(result_dict))
 
     with open(result_file_path, 'w', encoding='utf-8') as f:
