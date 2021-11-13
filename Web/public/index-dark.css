@@ -112,6 +112,7 @@ th {
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
     left: 50%;
     transform: translateX(-50%);
+    transition: 0;
 }
 
 .uploader {
@@ -121,8 +122,10 @@ th {
 .upload-image {
     margin-top: 15%;
     flex: 1;
+    flex-shrink: 0;
+    flex-basis: 100%;
     max-height: 300px;
-    z-index: 0;
+    z-index: -1;
 }
 
 .upload-text {
@@ -132,4 +135,27 @@ th {
 
 .dropzone {
     border: none;
+}
+
+.dropzone .dz-preview.dz-file-preview {
+    background: transparent;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-40%);
+}
+
+.dropzone .dz-preview.dz-file-preview .dz-image {
+    background: linear-gradient(to bottom, #202020, #222222);
+}
+
+.dropzone .dz-preview.dz-error .dz-error-mark {
+    display: none;
+}
+
+.dropzone .dz-preview.dz-error .dz-error-message {
+    display: none;
+}
+
+.dropzone.dz-clickable .dz-message, .dropzone.dz-clickable .dz-message * {
+    display: none;
 }

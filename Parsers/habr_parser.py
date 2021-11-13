@@ -107,21 +107,24 @@ def build_data_json(company_name, result_file_path='result.json'):
     result_dict["references"] = references
     result_json = json.loads(json.dumps(result_dict))
 
-    with open(result_file_path, 'w', encoding='utf-8') as f:
-        json.dump(result_json, f, ensure_ascii=False, indent=4)
+    return result_json
+
+   # with open(result_file_path, 'w', encoding='utf-8') as f:
+        #json.dump(result_json, f, ensure_ascii=False, indent=4)
 
 
-start = time.time()
+if __name__ == "main":
+    start = time.time()
 
-build_data_json('яндекс', result_file_path='habr_yandex.json')
-yandex = time.time()
+    build_data_json('яндекс', result_file_path='habr_yandex.json')
+    yandex = time.time()
 
-build_data_json('сбер', result_file_path='habr_sber.json')
-sber = time.time()
+    build_data_json('сбер', result_file_path='habr_sber.json')
+    sber = time.time()
 
-build_data_json('газпром', result_file_path='habr_gazprom.json')
-gazprom = time.time()
+    build_data_json('газпром', result_file_path='habr_gazprom.json')
+    gazprom = time.time()
 
-print("yandex time:", yandex - start)
-print("sber time: ", sber - yandex)
-print("gazprom time: ", gazprom - sber)
+    print("yandex time:", yandex - start)
+    print("sber time: ", sber - yandex)
+    print("gazprom time: ", gazprom - sber)

@@ -1,7 +1,7 @@
 const Router = require('express');
 const router = Router();
 const fs = require('fs');
-const multer  = require('multer')
+const multer = require('multer')
 
 router.get('', (req, res, _next) => {
     res.status(301);
@@ -12,8 +12,11 @@ router.get('', (req, res, _next) => {
     });
 });
 
-router.post('', async (req, res, _next) => {
-    
+router.post('/', multer({dest: 'data/'}).any(), async (req, res, next) => {
+    console.log(req.files);
+
+    res.json(301)
+    res.status(301).end();
 });
 
 module.exports = router;
