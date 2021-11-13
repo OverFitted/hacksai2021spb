@@ -13,9 +13,16 @@ router.get('', (req, res, _next) => {
 });
 
 router.post('/', multer({dest: 'data/'}).any(), async (req, res, next) => {
-    console.log(req.files);
+    res.json(req.files)
 
-    res.json(301)
+    // fs.readFile(request.files[0].path, function (err, data) {
+    //     var newPath = __dirname + "/public/img/xspectra/customlogo.png";
+    //     fs.writeFile(newPath, data, function (err) {
+    //         console.log("Finished writing file..." + err);
+    //         response.redirect("back");
+    //     });
+    // });
+
     res.status(301).end();
 });
 

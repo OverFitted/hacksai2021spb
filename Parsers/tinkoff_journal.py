@@ -35,9 +35,8 @@ async def get_all_texts(keyword):
     return all_texts
 
 
-async def get_data(keyword, result_file_path='result-tj.json'):
+async def tj_get_data(keyword, result_file_path='result-tj.json'):
     texts = await get_all_texts(keyword)
-    print(texts)
     result_dict = {"company": keyword,
                    "texts": texts}
     result_json = json.loads(json.dumps(result_dict))
@@ -48,4 +47,4 @@ async def get_data(keyword, result_file_path='result-tj.json'):
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()
-    loop.run_until_complete(get_data("сбер", "sber-tj.json"))
+    loop.run_until_complete(tj_get_data("сбер", "sber-tj.json"))

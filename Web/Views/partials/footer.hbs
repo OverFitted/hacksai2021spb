@@ -53,14 +53,9 @@
         $("#uploader").dropzone({
             url: "/",
             type: "text/csv",
-            success: function(file, response, xhr) {
-                // let obj = JSON.parse(response);
-                // alert(obj.filename);
-                console.log(file)
-                console.log(response)
-                console.log(xhr)
-                console.log(file.xhr.response)
-//                window.location = `/result?id=${file.upload.uuid}`;
+            success: function(file, response) {
+                id = response[0].filename
+                window.location = `/result?id=${id}`;
             }
         });
     }, 450);

@@ -1,3 +1,4 @@
 .history/
 Web/node_modules/
 Web/data/
+Parsers/__pycache__/

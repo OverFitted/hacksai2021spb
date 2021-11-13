@@ -35,7 +35,7 @@ async def get_all_texts(keyword):
     return all_texts
 
 
-async def get_data(keyword, result_file_path='result-vc.json'):
+async def vc_get_data(keyword, result_file_path='result-vc.json'):
     texts = await get_all_texts(keyword)
     result_dict = {"company": keyword,
                    "texts": texts}
@@ -46,4 +46,4 @@ async def get_data(keyword, result_file_path='result-vc.json'):
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()
-    loop.run_until_complete(get_data("сбер", "other/sber-vc.json"))
+    loop.run_until_complete(vc_get_data("сбер", "other/sber-vc.json"))
