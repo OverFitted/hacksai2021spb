@@ -2,6 +2,10 @@ body {
     background-color: #202020;
 }
 
+* {
+    transition: 0.4s;
+}
+
 h1,
 h2,
 h3,
@@ -19,228 +23,13 @@ th {
     text-decoration: none !important;
 }
 
-label {
-    width: fit-content !important;
-}
-
-p {
-    font-size: 1rem;
-}
-
-ul {
-    background-color: #252525 !important;
-}
-
-.add-photo {
-    color: ghostwhite !important;
-}
-
-.card-clickable {
-    display: block;
-    height: 100%;
-    width: 100%;
-    text-decoration: none;
-    color: ghostwhite;
-}
-
-.card {
-    border-radius: 8px;
-    background-color: #272727;
-}
-
-.profile-buttons {
-    float: left;
-    margin-top: 2%;
-}
-
-.table-head, .table-body {
-    text-align: center;
-}
-
-.nav-wrapper {
-    padding: 0 2rem;
-}
-
 .btn,
 .btn-small {
     background-color: teal !important;
 }
 
-.bio {
-    float: left;
-}
-
-.promo-caption {
-    font-size: 1.7rem;
-    font-weight: 500;
-    margin-top: 5px;
-    margin-bottom: 0;
-    padding: 39px;
-    color: black;
-}
-
-.promo {
-    margin: 40px 0;
-    font-size: 7rem;
-    display: block;
-    margin-top: 3px;
-}
-
-.margin {
-    margin: 10px 0px 0px 10px;
-}
-
-.adder {
-    padding: 7px 10px 1px 10px;
-    border-radius: 7px;
-    background-color: #303030;
-    margin-top: 1%;
-    box-shadow: 6px 6px #111111;
-}
-
-.close {
-    font-size: medium;
-    color: teal;
-    position: relative;
-    cursor: pointer;
-}
-
-.element {
-    width: fit-content !important;
-    padding: 0 30px 0 30px;
-    border-radius: 2px;
-    box-shadow: 4px 4px #111111;
-}
-
-.ach-card {
-    width: 100%;
-    padding: 1px 15px 1px 15px !important;
-    background-color: #303030 !important;
-    border-radius: 5px;
-    box-shadow: 6px 6px #111111;
-    border: 0 !important;
-}
-
-.no-padding {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-.header {
-    font-size: 1rem;
-    margin-top: 3px;
-}
-
-.collapsible-header {
-    background-color: #303030;
-    border-bottom-color: rgb(120, 112, 100);
-}
-
-.collapsible-body {
-    border-bottom-color: transparent;
-    width: 100%;
-    padding: 0 !important;
-    transition: 0s;
-}
-
-.art {
-    width: 20px;
-    margin: 5px;
-}
-
-.task-card {
-    background-color: #303030;
-    height: 100%;
-}
-
 .divider {
     background-attachment: aliceblue;
-}
-
-.input-field > label {
-    color: #9e9e9e !important;
-}
-
-.collapsible {
-    border: 1px solid #606060;
-    border-radius: 10px;
-}
-
-i,
-.table,
-.icon {
-    filter: invert(1);
-}
-
-.brand-logo {
-    filter: invert(1);
-    object-fit: cover !important;
-}
-
-.table {
-    max-width: -webkit-fill-available;
-}
-
-.dropdown-trigger {
-    margin: 0 0 0 auto;
-}
-
-.scores {
-    clear: both;
-    min-width: fit-content;
-    margin: 0 auto;
-    margin-right: 3px;
-    margin-left: auto;
-}
-
-.option, .task-option, .tasks-count {
-    padding: 4px 15px 4px 15px !important;
-    font-size: large !important;
-    border-radius: 5px !important;
-    transition: 0.35s !important;
-    background: #505050;
-}
-
-.center-div{
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.task-edit-card {
-    width: 50%;
-    height: max-content;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    background: #505050;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 15px;
-}
-
-.gimmesomespace {
-    margin-left: 5px;
-}
-
-.add-subj {
-    border: 2px dashed #606060;
-}
-
-.edit-buttons {
-    margin-bottom: 15px;
-}
-
-#add-subj {
-    border-radius: 10px;
-    border-bottom-color: transparent;
-}
-
-.admin-part-button {
-    width: 75%;
-    background-color: #505050;
-    display: block;
-    padding: 7px 3px 7px 3px;
-    border-radius: 5px;
-    text-align: center;
 }
 
 .overlay {
@@ -252,115 +41,6 @@ i,
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(3px);
-}
-
-.task-option {
-    cursor: pointer;
-}
-
-.tab-chooser {
-    margin-left: 10px;
-    float: left;
-    border-radius: 5px;
-}
-
-.incard {
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.task-count {
-    border-radius: 5px;
-}
-
-.tasks-devider{
-    margin-top: 20px;
-}
-
-input:checked+.option {
-    background: teal;
-}
-
-.count-button {
-    margin-top: 2%;
-}
-
-.big-container {
-    padding-left: 1%;
-    padding-right: 1%;
-}
-
-.not-active,
-a.active,
-a.tab-clicker {
-    background: transparent !important;
-}
-
-.tab.disabled {
-    color: transparent !important;
-    font-size: 1.1em;
-}
-
-.indicator {
-    background: teal !important;
-}
-
-.tab-clicker {
-    color: whitesmoke !important;
-}
-
-.disabled {
-    color: gray !important;
-}
-
-.nickname {
-    font-size: xx-large;
-}
-
-.city,
-.name,
-.school {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-size: x-large;
-}
-
-.profile-photo,
-.badge {
-    border-radius: 5px;
-    margin-top: 35px;
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-    cursor: pointer;
-}
-
-.badge {
-    cursor: default;
-}
-
-.apexcharts-svg,
-.chart {
-    background: transparent !important;
-    width: auto !important;
-    height: auto !important;
-}
-
-.profile-body {
-    margin-top: 25px;
-}
-
-.badge {
-    border-radius: 50%;
-    width: 70px;
-    height: 70px;
-    padding: 15px 0;
-    background: transparent !important;
-    border: 2px solid whitesmoke;
-    color: whitesmoke;
-    text-align: center;
-    float: right;
-    font-size: x-large;
 }
 
 ::-webkit-scrollbar {
@@ -385,50 +65,6 @@ a.tab-clicker {
     margin: 0;
 }
 
-.gridjs-sort,
-.gridjs-sort-neutral {
-    opacity: .7 !important;
-    filter: invert(1);
-    padding: 0;
-    margin: 0;
-}
-
-.apexcharts-legend-text,
-.apexcharts-tooltip-text-label,
-.apexcharts-tooltip-text-value,
-.apexcharts-tooltip-title {
-    font-size: medium !important;
-}
-
-.nav {
-    font-size: large !important;
-}
-
-.container {
-    min-width: 1280px;
-}
-
-.card-container{margin:0 auto;max-width:1280px;width:90%}@media only screen and (min-width: 601px){.card-container{width:85%}}@media only screen and (min-width: 993px){.card-container{width:70%}}
-
-.card-container {
-    min-width: 1280px;
-}
-
-td {
-    background: #202020 !important;
-    color: whitesmoke;
-    border: 1px solid #777777;
-}
-
-.gridjs-th-content {
-    color: whitesmoke;
-}
-
-th {
-    background: #404040 !important;
-    border: 1px solid #777777;
-}
-
 .theme-change {
     margin: 20px;
     position: fixed;
@@ -446,101 +82,54 @@ th {
     cursor: pointer;
 }
 
-* {
-    transition: 0.4s;
-}
-
 .preloader {
     background: #202020 !important;
 }
 
-.login-form {
-    width: 100%;
-    height: fit-content;
-    padding: 1% 15px 1% 15px;
-    min-width: 25%;
-    border-radius: 5px;
-    border: 5px solid rgba(58, 134, 131, 0.7);
-
-	/* position: absolute;
-	top:0;
-	bottom: 0;
-	left: 0;
-	right: 0; */
-	margin: auto;
+.nav-wrapper {
+    padding: 0 2rem;
 }
 
-.a-tab {
-    color: ghostwhite !important;
+.nav {
+    font-size: large !important;
 }
 
-.material-tooltip {
-    transition-delay: 0s !important;
+.darker-hr {
+    color: #404040;
 }
 
-.keyboard-focused .collapsible-header:focus {
-    background-color: #303030;
+.application-header {
+    text-align: center;
 }
 
-.material-tooltip {
-    transition: 0s;
+.upload-card {
+    width: 560px;
+    height: 640px;
+    background: #252525;
+    top: 165px;
+    position: relative;
+    border-radius: 35px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.card-nickname {
-    margin-top: 20px !important;
-    margin-bottom: 0;
-    font-size: 4rem;
+.uploader {
+    display: flex;
 }
 
-.card-info {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: xx-large;
+.upload-image {
+    margin-top: 15%;
+    flex: 1;
+    max-height: 300px;
+    z-index: 0;
 }
 
-.score-card-text {
-    font-size: 3.7rem !important;
-    margin-top: 22px !important;
-    margin-bottom: 0;
+.upload-text {
+    color: #8f8f8f !important;
+    text-align: center;
 }
 
-.score-card {
-    font-size: 4rem !important;
-    margin-top: -10px !important;
-}
-
-.gridjs-td {
-    background-color: transparent !important;
-    text-align: center !important;
-}
-
-.gridjs-th {
-    text-align: center !important;
-}
-
-.result {
-    background-color: transparent !important;
-    border: 1px solid #707070;
-    position: absolute;
-    margin: auto;
-    height: fit-content;
-}
-
-.card-close{
-    float: right;
-    margin-right: -25px;
-    margin-top: -25px;
-}
-
-.card-close-icon {
-    border-radius: 50%;
-    filter: invert(0);
-}
-
-#expand {
-    cursor: pointer;
-}
-
-img.table {
-    width: inherit;
+.dropzone {
+    border: none;
 }
