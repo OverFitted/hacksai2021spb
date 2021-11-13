@@ -44,18 +44,18 @@
     }
 
     setTimeout(() => {
-                    $('#preloader')[0].style.opacity = 0;
-                    $('#preloader')[0].style["z-index"] = -1;
-                    $('.collapsible').collapsible();
-                    $('select').not('.disabled').formSelect();
-                    $('.tabs').tabs({
-                        duration: 100,
-                    });
-                    $('.tooltipped').tooltip({
-                        enterDelay: 300,
-                        inDuration: 50,
-                        outDuration: 50,
-                        margin: 2
-                    });
-                }, 450);
+        $('#preloader')[0].style.opacity = 0;
+        $('#preloader')[0].style["z-index"] = -1;
+        $('.collapsible').collapsible();
+        $('select').not('.disabled').formSelect();
+        $('.tabs').tabs({
+            duration: 100,
+        });
+        $('.tooltipped').tooltip({
+            enterDelay: 300,
+            inDuration: 50,
+            outDuration: 50,
+            margin: 2
+        });
+    }, 450);
 </script>
