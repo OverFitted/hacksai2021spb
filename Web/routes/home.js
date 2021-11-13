@@ -13,7 +13,7 @@ router.get('', (req, res, _next) => {
 });
 
 router.post('', multer({dest: 'public/images/'}).any(), async (req, res, _next) => {
-    
+
 });
 
 module.exports = router;

@@ -24,6 +24,7 @@
             });
         }
     });
+
     if (getCookie("theme") === undefined) {
         // document.cookie = "theme=light; expires=Fri, 18 Dec 2150 12:00:00 UTC"
         $.cookie("theme", 'light', {
@@ -41,4 +42,20 @@
             $("#theme-icon")[0].innerHTML = "mode_night"
         }
     }
+
+    setTimeout(() => {
+                    $('#preloader')[0].style.opacity = 0;
+                    $('#preloader')[0].style["z-index"] = -1;
+                    $('.collapsible').collapsible();
+                    $('select').not('.disabled').formSelect();
+                    $('.tabs').tabs({
+                        duration: 100,
+                    });
+                    $('.tooltipped').tooltip({
+                        enterDelay: 300,
+                        inDuration: 50,
+                        outDuration: 50,
+                        margin: 2
+                    });
+                }, 450);
 </script>
