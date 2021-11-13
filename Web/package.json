@@ -1,0 +1,23 @@
+{
+  "name": "hacksai2021spb",
+  "version": "1.0.0",
+  "description": "Website for Hacks AI SPB 2021",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OverFitted/hacksai2021spb.git"
+  },
+  "keywords": [
+    "Hackathon",
+    "AI"
+  ],
+  "author": "OverFitter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OverFitted/hacksai2021spb/issues"
+  },
+  "homepage": "https://github.com/OverFitted/hacksai2021spb#readme"
+}
