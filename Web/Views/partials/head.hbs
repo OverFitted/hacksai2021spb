@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/scripts/jquery.cookie-1.4.1.min.js"></script>
+    <script src="/scripts/gridjs.production.min.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/index-dark.css" id="idx">
+    <link rel="stylesheet" href="/styles/mermaid.min.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <script>
+        function detectMob() {
+            const toMatch = [/Android/i, /webOS/i, /iPhone/i, /iPad/i, /iPod/i, /BlackBerry/i, /Windows Phone/i];
+            return toMatch.some((toMatchItem) => {
+                return window.navigator.userAgent.match(toMatchItem);
+            });
+        }
+
+        function getCookie(name) {
+            let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g,
+                '\\$1') + "=([^;]*)"));
+            return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
+
+        $(document).ready(function () {
+            if (detectMob()) {
+                $('#container')[0].classList = ["big-container"];
+            } else {
+                $('#container')[0].classList = ["container"];
+            }
+        });
+    </script>
+
+    <title>{{title}}</title>
+</head>

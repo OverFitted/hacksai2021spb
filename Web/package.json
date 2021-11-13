@@ -1,23 +1,36 @@
 {
-  "name": "hacksai2021spb",
-  "version": "1.0.0",
-  "description": "Website for Hacks AI SPB 2021",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/OverFitted/hacksai2021spb.git"
-  },
-  "keywords": [
-    "Hackathon",
-    "AI"
-  ],
-  "author": "OverFitter",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/OverFitted/hacksai2021spb/issues"
-  },
-  "homepage": "https://github.com/OverFitted/hacksai2021spb#readme"
+    "name": "hacksai2021spb",
+    "version": "1.0.0",
+    "description": "Website for Hacks AI SPB 2021",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/OverFitted/hacksai2021spb.git"
+    },
+    "keywords": [
+        "Hackathon",
+        "AI"
+    ],
+    "author": "OverFitter",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/OverFitted/hacksai2021spb/issues"
+    },
+    "homepage": "https://github.com/OverFitted/hacksai2021spb#readme",
+    "dependencies": {
+        "cookie-parser": "^1.4.5",
+        "express": "^4.17.1",
+        "express-handlebars": "^5.1.0",
+        "fs": "^0.0.1-security",
+        "morgan": "^1.10.0",
+        "multer": "^1.4.3",
+        "uuid": "^8.3.2"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
 }

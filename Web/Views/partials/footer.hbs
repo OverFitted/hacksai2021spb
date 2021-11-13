@@ -1,0 +1,44 @@
+</div>
+
+<div style="height: 20px"></div>
+<a id="theme-change" class="theme-change"><i class="material-icons" id="theme-icon" style="filter: invert(1) !important;">wb_sunny</i></a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    $("#theme-change").on("click", function () {
+        if ($("#idx")[0].href.match("dark")) {
+            $("#idx")[0].href = "/index-light.css";
+            $("#theme-icon")[0].innerHTML = "mode_night"
+            // document.cookie = "theme=light; expires=Fri, 18 Dec 2150 12:00:00 UTC";
+            $.cookie("theme", 'light', {
+                path: '/',
+                expires: 1000
+            });
+        } else {
+            $("#idx")[0].href = "/index-dark.css";
+            $("#theme-icon")[0].innerHTML = "wb_sunny"
+            // document.cookie = "theme=dark; expires=Fri, 18 Dec 2150 12:00:00 UTC";
+            $.cookie("theme", 'dark', {
+                path: '/',
+                expires: 1000
+            });
+        }
+    });
+    if (getCookie("theme") === undefined) {
+        // document.cookie = "theme=light; expires=Fri, 18 Dec 2150 12:00:00 UTC"
+        $.cookie("theme", 'light', {
+            path: '/',
+            expires: 1000
+        });
+        $("#idx")[0].href = "/index-light.css";
+        $("#theme-icon")[0].innerHTML = "mode_night"
+    } else {
+        if (getCookie("theme").match("dark")) {
+            $("#idx")[0].href = "/index-dark.css";
+            $("#theme-icon")[0].innerHTML = "wb_sunny"
+        } else {
+            $("#idx")[0].href = "/index-light.css";
+            $("#theme-icon")[0].innerHTML = "mode_night"
+        }
+    }
+</script>
