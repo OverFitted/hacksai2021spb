@@ -27,14 +27,14 @@ router.get('', (req, res, _next) => {
             phone: "+7 (495) 457 57-35",
             desc: "Маркетплейс, принадлежащий Сбербанку. Платформа электронной коммерции, ассортимент которой включает товары продавцов в различных категориях. У пользователя есть возможность сравнить товары по цене, характеристикам, условиям доставки и самостоятельно выбрать продавца. Позиции от разных продавцов собираются в один заказ. Система доставки, оплаты, возврата общая для всех",
             organization_site: "https://goods.ru",
-            sum_score: 287,
-            runet_devepment_score: 58,
-            pr_score: 29,
-            projects_score: 410,
-            gr_score: 311,
-            tech_score: 512,
-            social_score: 413,
-            people_score: 514,
+            sum_score: 28,
+            runet_devepment_score: 5,
+            pr_score: 2,
+            projects_score: 4,
+            gr_score: 3,
+            tech_score: 5,
+            social_score: 4,
+            people_score: 5,
             nomination: "Экономика и Бизнес"
         }
 
