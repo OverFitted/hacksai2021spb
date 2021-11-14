@@ -159,3 +159,19 @@ th {
 .dropzone.dz-clickable .dz-message, .dropzone.dz-clickable .dz-message * {
     display: none;
 }
+
+p {
+    font-size: 1.1rem;
+}
+
+.material-icons {
+    font-size: 1.2rem;
+}
+
+.apexcharts-yaxis, .apexcharts-xaxis, .apexcharts-xaxis-tick {
+    display: none;
+}
+
+.row {
+    margin-bottom: 0;
+}

@@ -40,10 +40,10 @@ def parse_article_text(url):
     return text
 
 
-def get_all_texts_about_company(name):
+def get_all_texts_about_company(name, k):
     urls = get_texts_urls(name)
     all_texts = []
-    for u in urls[:50]:
+    for u in urls[:k]:
         text = parse_article_text(u)
         all_texts.append(text)
     return all_texts
@@ -97,10 +97,10 @@ def get_company_info(company_name, order='relevance'):
     }
 
 
-def build_data_json(company_name, result_file_path='result.json'):
+def build_data_json(company_name, k=50, result_file_path='result.json'):
     result_dict = dict()
     company_info = get_company_info(company_name)
-    references = [x for x in get_all_texts_about_company(company_name) if len(x) >= 200]
+    references = [x for x in get_all_texts_about_company(company_name, k) if len(x) >= 200]
     references_quantity = len(references)
     result_dict["company_info"] = company_info
     result_dict["references_quantity"] = references_quantity

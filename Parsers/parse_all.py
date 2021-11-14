@@ -20,12 +20,11 @@ class ThreadWithReturnValue(Thread):
         return self._return
 
 
-async def make_full_company_report(keyword):
+async def make_full_company_report(keyword, company_people, company_nomination):
     threads = []
 
-    # print(f'{keyword} start')
     threads.append(ThreadWithReturnValue(target=parse_gz, args=(keyword,)))
-    threads.append(ThreadWithReturnValue(target=get_all_texts, args=(keyword,)))
+    threads.append(ThreadWithReturnValue(target=get_all_texts_with_dates, args=(keyword,)))
     threads.append(ThreadWithReturnValue(target=build_data_json, args=(keyword,)))
 
     threads[0].start()
@@ -33,23 +32,39 @@ async def make_full_company_report(keyword):
     threads[2].start()
 
     vcru = await vc_get_data(keyword)
-    # print(f"{keyword} vc: done")
     tinkoff = await tj_get_data(keyword)
-    # print(f"{keyword} tj: done")
+
+    people_parsed = []
+    for person in company_people:
+        people_threads = []
+        people_threads.append(ThreadWithReturnValue(target=get_all_texts_with_dates, args=(f"{keyword} {person}",)))
+        people_threads.append(ThreadWithReturnValue(target=build_data_json, args=(f"{keyword} {person}", 20,)))
+
+        people_threads[0].start()
+        people_threads[1].start()
+
+        people_cnews = people_threads[0].join()
+        people_habr = people_threads[1].join()
+
+        people_parsed.append({
+            "cnews": people_cnews,
+            "habr": people_habr
+        })
 
     goszakupki = threads[0].join()
-    # print(f'{keyword} goszakupki: done')
     cnews = threads[1].join()
-    # print(f"{keyword} cnews: done")
     habr = threads[2].join()
-    # print(f"{keyword} habr: done")
 
     result_dict = {
-        "goszakupki": goszakupki,
-        "habr": habr,
-        "vcru": vcru,
-        "tinkoff_journal": tinkoff,
-        "cnews": cnews
+        "company": {
+            "goszakupki": goszakupki,
+            "habr": habr,
+            "vcru": vcru,
+            "tinkoff_journal": tinkoff,
+            "cnews": cnews
+        },
+        "people": people_parsed,
+        "nomination": company_nomination
     }
     return result_dict
 
@@ -59,20 +74,21 @@ async def make_full_company_report(keyword):
 
 async def main():
     with open("input.txt", encoding='utf-8') as inp:
-        companies = inp.readlines()
+        infos = [x.split(" - ") for x in inp.readlines()]
+        companies = [x[0] for x in infos]
+        people = [x[1:-1] for x in infos]
+        nominations = [x[-1] for x in infos]
 
     final_dict = dict()
 
-    for company_name in tqdm(companies):
-        company_name = company_name.strip()
-        report = await make_full_company_report(company_name)
+    for company_id in tqdm(range(len(companies))):
+        company_name = companies[company_id].strip()
+        people[company_id] = [x.strip() for x in people[company_id]]
+        report = await make_full_company_report(company_name, people[company_id], nominations[company_id])
         final_dict[company_name] = report
-        # print(f"{company_name} report completed")
     final_json = json.loads(json.dumps(final_dict))
-    print("Final json builded")
-    with open("jsons/dataset.json", 'w', encoding='utf-8') as f:
+    with open("data/dataset.json", 'w', encoding='utf-8') as f:
         json.dump(final_json, f, ensure_ascii=False, indent=4)
-    print("All done! bye")
 
 
 loop = asyncio.get_event_loop()

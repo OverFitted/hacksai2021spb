@@ -1,0 +1,248 @@
+<div class="section">
+    <div class="row">
+        <div class="col s9">
+            <h2>{{company.name}} - {{company.organization}}</h2>
+            <h6>О компании: {{company.desc}}</h6>
+            <h6>Номинация: {{company.nomination}}</h6>
+            <p><i class="material-icons">language</i> {{company.site}}</p>
+            <p><i class="material-icons">language</i> {{company.organization_site}}</p>
+            <p><i class="material-icons">local_phone</i> {{company.phone}}</p>
+        </div>
+        <div class="col s3">
+            <div id="chart"></div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="row">
+        <div class="col s6">
+            <h5>Вклад в развитие рунета</h5>
+            <div id="development-chart"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <h5>Оценка рейтинга PR</h5>
+            <div id="pr-chart"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <h5>Оценка рейтинга онлайн решений</h5>
+            <div id="projects-chart"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <h5>Оценка рейтинга взаимодействия с властями</h5>
+            <div id="gr-chart"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <h5>Оценка рейтинга используемых технологий</h5>
+            <div id="tech-chart"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <h5>Оценка рейтинга общественного вклада</h5>
+            <div id="social-chart"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <h5>Оценка рейтинга персон организации</h5>
+            <div id="people-chart"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var donutOptions = {
+        series: [75, {{company.sum_score}}* 75 / 35],
+        chart: {
+            height: 350,
+            type: 'radialBar',
+            toolbar: {
+                show: false
+            }
+        },
+        theme: {
+            mode: 'light',
+            palette: 'palette4',
+        },
+        plotOptions: {
+            radialBar: {
+                startAngle: -135,
+                endAngle: 225,
+                hollow: {
+                    margin: 0,
+                    size: '70%',
+                    background: 'transparent',
+                    image: undefined,
+                    imageOffsetX: 0,
+                    imageOffsetY: 0,
+                    position: 'front',
+                    dropShadow: {
+                        enabled: true,
+                        top: 3,
+                        left: 0,
+                        blur: 4,
+                        opacity: 0.24
+                    }
+                },
+                track: {
+                    background: 'transparent',
+                    strokeWidth: '67%',
+                    margin: 0, // margin is in pixels
+                    dropShadow: {
+                        enabled: true,
+                        top: -3,
+                        left: 0,
+                        blur: 4,
+                        opacity: 0.35
+                    }
+                },
+                dataLabels: {
+                    show: true,
+                    name: {
+                        offsetY: -10,
+                        show: true,
+                        color: '#bbb', // Inner text color
+                        fontSize: '17px'
+                    },
+                    value: {
+                        label: "{{company.organization}}",
+                        formatter: function (val) {
+                            return "{{company.sum_score}} / 35";
+                        },
+                        color: '#eee', // Inner num color
+                        fontSize: '36px',
+                        show: true,
+                    },
+                    total: {
+                        label: "{{company.organization}}",
+                        formatter: function (val) {
+                            return "{{company.sum_score}} / 35";
+                        },
+                        color: '#eee', // Inner num color
+                        fontSize: '17px',
+                        show: true,
+                    }
+                }
+            }
+        },
+        fill: {
+            type: 'gradient',
+            gradient: {
+                shade: 'dark',
+                type: 'horizontal',
+                shadeIntensity: 0.5,
+                gradientToColors: ['#de3a1d'],
+                inverseColors: true,
+                opacityFrom: 1,
+                opacityTo: 1,
+                stops: [0, 100]
+            }
+        },
+        stroke: {
+            lineCap: 'round'
+        },
+        labels: ["{{company.organization}}", "{{company.organization}}"]
+    };
+
+    var barOptions = {
+        chart: {
+            type: 'bar',
+            height: 150,
+            toolbar: {
+                show: false
+            }
+        },
+        plotOptions: {
+            bar: {
+                barHeight: '100%',
+                distributed: true,
+                horizontal: true,
+                dataLabels: {
+                    position: 'bottom'
+                },
+                borderRadius: 20,
+                backgroundBarRadius: 20,
+            }
+        },
+        grid: {
+            show: false
+        },
+        colors: ["rgba(72, 148, 22, 0.7)", "rgba(212, 72, 42, 0.7)"],
+        dataLabels: {
+            enabled: true,
+            textAnchor: 'start',
+            style: {
+                colors: ["#FFF"]
+            },
+            formatter: function (val, opt) {
+                return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val
+            },
+            offsetX: 0,
+            dropShadow: {
+                enabled: true
+            }
+        },
+        stroke: {
+            width: 5,
+            colors: ['transparent'],
+            dashArray: 0,
+        },
+        xaxis: {
+            show: false,
+            showAlways: false,
+            showForNullSeries: false,
+            categories: ['{{company.organization}}', 'Среднее'],
+        },
+        yaxis: {
+            show: false,
+            showAlways: false,
+            showForNullSeries: false,
+            max: 5,
+        },
+        tooltip: {
+            enabled: false,
+        },
+        legend: {
+            show: false
+        },
+    };
+
+    var donut = new ApexCharts(document.querySelector("#chart"), donutOptions);
+    donut.render();
+
+    barOptions.series = [{data: [{{company.runet_devepment_score}}, 3]}]
+    var developmentbar = new ApexCharts(document.querySelector("#development-chart"), barOptions);
+    developmentbar.render();
+
+    barOptions.series = [{data: [{{company.pr_score}}, 3]}]
+    var prbar = new ApexCharts(document.querySelector("#pr-chart"), barOptions);
+    prbar.render();
+
+    barOptions.series = [{data: [{{company.projects_score}}, 3]}]
+    var projectsbar = new ApexCharts(document.querySelector("#projects-chart"), barOptions);
+    projectsbar.render();
+
+    barOptions.series = [{data: [{{company.gr_score}}, 3]}]
+    var grbar = new ApexCharts(document.querySelector("#gr-chart"), barOptions);
+    grbar.render();
+
+    barOptions.series = [{data: [{{company.tech_score}}, 3]}]
+    var techbar = new ApexCharts(document.querySelector("#tech-chart"), barOptions);
+    techbar.render();
+
+    barOptions.series = [{data: [{{company.social_score}}, 3]}]
+    var socialbar = new ApexCharts(document.querySelector("#social-chart"), barOptions);
+    socialbar.render();
+
+    barOptions.series = [{data: [{{company.people_score}}, 3]}]
+    var peoplebar = new ApexCharts(document.querySelector("#people-chart"), barOptions);
+    peoplebar.render();
+</script>
