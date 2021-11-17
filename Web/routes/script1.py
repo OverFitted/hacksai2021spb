@@ -2,7 +2,5 @@
 
 import sys
 
-print("done")
-
-
+print("test")
 sys.stdout.flush()
