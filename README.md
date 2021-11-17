@@ -29,70 +29,80 @@ Company - People (Person, Person, Person etc) - nomination
 Parsers output json file with all the data
 
 ```json
-[{
-  company: {
-    "company": {
-      "goszakupki": [{
-        "id": int,
-        "value": int,
-        "description": string,
-        "date": string (d.m.y format)
-      }],
-      "habr": {
-        "company_info": {
-          "description": string,
-          "industries": [
-            string
-          ],
-          "rate": float,
-          "subscribers_str": string,
-          "subscribers_quantity": int
-        },
-        "references": [
-          string
-        ],
-        "references_quantity": int
-      },
-      "vcru": {
-        "company": string,
-        "texts": [
-          string
-        ]
-      },
-      "tinkoff_journal": {
-        "company": string,
-        "texts": [
-          string
-        ]
-      },
-      "cnews": [{
-        "date": string (d.m.y h:M format),
-        "text": string
-      }]
-    },
-    "people": [{
-      "cnews": [{
-        "date": string (d.m.y h:M format),
-        "text": string
-      }],
-      "habr": {
-        "company_info": {
-          "description": string,
-          "industries": [
-            string
-          ],
-          "rate": float,
-          "subscribers_str": string,
-          "subscribers_quantity": int
-        },
-        "references": [
-          string
-        ],
-        "references_quantity": int
-      }
-    }]
-  }
-}]
+[
+    {
+        "Company-name": {
+            "company": {
+                "goszakupki": [
+                    {
+                        "id": "int",
+                        "value": "int",
+                        "description": "string",
+                        "date": "string d.m.y format)"
+                    }
+                ],
+                "habr": {
+                    "company_info": {
+                        "description": "string",
+                        "industries": [
+                            "string"
+                        ],
+                        "rate": "float",
+                        "subscribers_str": "string",
+                        "subscribers_quantity": "int"
+                    },
+                    "references": [
+                        "string"
+                    ],
+                    "references_quantity": "int"
+                },
+                "vcru": {
+                    "company": "string",
+                    "texts": [
+                        "string"
+                    ]
+                },
+                "tinkoff_journal": {
+                    "company": "string",
+                    "texts": [
+                        "string"
+                    ]
+                },
+                "cnews": [
+                    {
+                        "date": "string d.m.y h:M format)",
+                        "text": "string"
+                    }
+                ]
+            },
+            "people": [
+                {
+                    "cnews": [
+                        {
+                            "date": "string d.m.y h:M format)",
+                            "text": "string"
+                        }
+                    ],
+                    "habr": {
+                        "company_info": {
+                            "description": "string",
+                            "industries": [
+                                "string"
+                            ],
+                            "rate": "float",
+                            "subscribers_str": "string",
+                            "subscribers_quantity": "int"
+                        },
+                        "references": [
+                            "string"
+                        ],
+                        "references_quantity": "int"
+                    }
+                }
+            ]
+        }
+    }
+]
 ```
 
 ### Parsers TODO
