@@ -145,7 +145,7 @@ Web part was mainly written by @OverFitted.
 
 ### Backend
 
-As main framework we decided to go with express.js (aka fast, unopinionated, minimalist web framework)
+As main framework we decided to go with express.js (aka fast, unopinionated, minimalist web framework).
 
 ### Frontend
 
