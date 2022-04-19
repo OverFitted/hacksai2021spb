@@ -113,7 +113,7 @@ Parsers output json file with all the data
 
 ## AI
 
-AI part was mainly written by @mike-yasunov.
+AI part was mainly written by @mike-yasnov.
 
 ### Structure
 
