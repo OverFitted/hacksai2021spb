@@ -4,7 +4,7 @@ Repo for Hacks AI 2021 in SPB
 
 ## Parsers
 
-Parsers part was mainly written by @doogeemodulny.
+Parsers part was mainly written by [@doogeemodulny](https://github.com/doogeemodulny/).
 For people "*feedback*" we parsed:
 Хабр (habr.com) and cnews (cnews.ru)
 
@@ -113,7 +113,7 @@ Parsers output json file with all the data
 
 ## AI
 
-AI part was mainly written by @mike-yasnov.
+AI part was mainly written by [@mike-yasnov](https://github.com/mike-yasunov/).
 
 ### Structure
 
@@ -141,7 +141,7 @@ The output of CatBoost is the probability of each nomination
 
 ## Web
 
-Web part was mainly written by @OverFitted.
+Web part was mainly written by [@OverFitted](https://github.com/OverFitted).
 
 ### Backend
 
